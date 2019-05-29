@@ -1,5 +1,4 @@
 var LocalStrategy = require('passport-local').Strategy;
-var mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 //Load Models

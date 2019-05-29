@@ -1,3 +1,4 @@
+// Imports
 var cors = require('cors');
 var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({extended: true});
@@ -71,7 +72,7 @@ setInterval(() =>{
 
     }).catch(err => console.log(err));
 
-}, 100);
+}, 700);
 
 
 
@@ -93,7 +94,7 @@ setInterval(() =>{
 
     
 
-}, 100);
+}, 700);
 
 //====== Opening medical file =======
 app.post('/openmedical', cors(), urlencodedParser, function(req, res){
@@ -178,7 +179,7 @@ setInterval(() =>{
 
 
 
-}, 100);   
+}, 700);   
 
 
 

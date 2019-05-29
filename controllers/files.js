@@ -1,10 +1,9 @@
+// imports
 var cors = require('cors');
 var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({extended: true});
 'use strict';
 var crypto = require('crypto');
-
-
 
 // Load Models
 var AtAdmissionFiles = require('../models/File').AtAdmissionFiles;
@@ -52,7 +51,7 @@ setInterval(() =>{
     // Pharmacy
     ToPharmacyFiles.find({}).then(files =>{io.emit('/listpharmacy', files);}).catch(err => console.log(err));
 
-}, 100);
+}, 700);
 
 
 // Admission Patient
