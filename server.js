@@ -12,11 +12,7 @@ var cors = require('cors');
 
 //global variables
 app.locals = {
-    // Super User.. Only used for demonstration 
-    // Should be removed on real implementation   
-    superClinician : [ { firstName : "Sainez", surname : "Amon", lastName : "Kimutai", username : "@sainez_sainez", userNo : "000002", nationalId : "00000000", gender : "male", phone : "+254 718 896 779", specialize : "SuperUser", profNo : "101010", mail : "sainez@kimsweb.co.ke", password : '573fcc62ae45988da88a492d0e15b5c01c53cc94f5a1d7aed95bb1208a8862f6e57164f42b98d7f8dbe8f989d24f7476e351b955a29d77af77a74cd677ce9bbc' } ], // Clinical Users
-    superAdmin : [ { firstName : "Sainez", surname : "Amon", lastName : "Kimutai", username : "@sainez_sainez", userNo : "000001",  nationalId : "00000000", gender : "male", phone : "+254 718 896 779", department : "SuperUser", officeNo : "101010", mail : "sainez@kimsweb.co.ke", password : '573fcc62ae45988da88a492d0e15b5c01c53cc94f5a1d7aed95bb1208a8862f6e57164f42b98d7f8dbe8f989d24f7476e351b955a29d77af77a74cd677ce9bbc' } ], // Admin Users
-    
+
     // Active files variables
     activeONE : [], activeTWO : [], activeTHREE : [], activeFOUR : [],activeMED : [], activeUSER : []
 };

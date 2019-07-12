@@ -24,9 +24,6 @@ module.exports = function(app){
     app.use(bodyParser.urlencoded({extended : true}));
     var secret = 'thenewsheriff'; 
 
-    var superClinician = app.locals.superClinician;
-    var superAdmin = app.locals.superAdmin;
-
 
 //=== Check Password ===
 var checkPassword = function(password){
@@ -71,27 +68,6 @@ app.post('/logclinician', cors(), urlencodedParser, function(req, res, next){
     
     user.password = checkPassword(req.body.password);
 
-    if ( user.mail === superClinician[0].mail && user.password === superClinician[0].password){                     
-        
-        var token = jwt.sign({
-             mail : this.mail, mail : this.mail ,pass: this.password},
-            secret, {expiresIn : 604800});
-        var signedUser = superClinician[0].firstName + ' ' + superClinician[0].surname + ' ' + superClinician[0].lastName;
-        
-      
-        
-        res.status(200).json({
-                    signedUser : signedUser,
-                    token : token
-                    })			 	
-        
-    }else{
-        if ( user.mail === superClinician[0].mail){
-        
-            res.status(401).json("Wrong Password !");
-            
-        }else{
-
             //passport
             passport.authenticate('clinician-local', (err, user, info) => {
 
@@ -114,11 +90,6 @@ app.post('/logclinician', cors(), urlencodedParser, function(req, res, next){
                    res.status(401).json(info.message);
                 }
             }) ( req, res, next);
-
-
-
-        }
-    }
 
 
 }
@@ -155,59 +126,33 @@ app.post('/logadmin', cors(), urlencodedParser, function( req, res, next){
     if (req.body){ 
 
         var user = new Array;
-        user.mail = req.body.mail;
-        var noUser = true;    
+        user.mail = req.body.mail;  
               
         user.password = checkPassword(req.body.password);
-        if ( user.mail === superAdmin[0].mail && user.password === superAdmin[0].password){                     
-            
-            var token = jwt.sign({
-                mail : this.mail, mail : this.mail ,pass: this.password},
-               secret, {expiresIn : 604800});
-            var signedUser = superAdmin[0].firstName + ' ' + superAdmin[0].surname + ' ' + superAdmin[0].lastName;
-            
-            var noUser = false;
-            
-            res.status(200).send({
-                        signedUser : signedUser,
-                        token : token
-                        })			 	
-            
-        }
-        else{
-            if ( user.mail === superAdmin[0].mail){
-                var noUser = false;
-                res.status(401).send("Wrong Password !");
+
+        // Passport
+        passport.authenticate('admin-local', (err, user, info) => {
+
+            if (err) {
+                res.status(401).send(err);
                 
-            }else{
-
-                // Passport
-                passport.authenticate('admin-local', (err, user, info) => {
-
-                    if (err) {
-                       res.status(401).send(err);
-                       
-                    }
-                    if (user) {
-                       var token = jwt.sign({
-                           mail : user.mail, mail : user.mail ,pass: user.password},
-                           secret, {expiresIn : 604800});
-                       var signedUser = user.firstName + ' ' + user.surname + ' ' + user.lastName;
-                      
-                       res.status(200).send({
-                                  signedUser : signedUser,
-                                  token : token
-                                  })	
-                    }
-                    else{
-                       res.status(401).send(info.message);
-                    }
-                }) ( req, res, next);
-    
-
             }
-
-        }
+            if (user) {
+                var token = jwt.sign({
+                    mail : user.mail, mail : user.mail ,pass: user.password},
+                    secret, {expiresIn : 604800});
+                var signedUser = user.firstName + ' ' + user.surname + ' ' + user.lastName;
+                
+                res.status(200).send({
+                            signedUser : signedUser,
+                            token : token
+                            })	
+            }
+            else{
+                res.status(401).send(info.message);
+            }
+        }) ( req, res, next);
+    
     } 
 
 });
