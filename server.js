@@ -63,8 +63,8 @@ app.get('/*', cors(), function(req, res){
 io.on('connection', function(){});
 
 //listen to port
-server.listen(process.env.PORT || 8090, () =>{
-    console.log('Running Port 8090....');
+server.listen(process.env.PORT || 8040, () =>{
+    console.log('Running Port 8040....');
 });
 
 

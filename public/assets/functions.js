@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-   
+
 
 //---------- On Load Function ----------------
 
@@ -11,33 +11,33 @@ $(document).ready(function(){
     $('#contact_form').hide();
 
 
-    
-    
-    
+
+
+
 
 //---------- About ----------------
 
-$('#about').on('click', function () {	
-		 
+$('#about').on('click', function () {
+
         $('#career_form').slideUp(function(){
 
             $('#contact_form').slideUp(function(){
 
                 $('#about_form').slideDown(1000);
-                $('#about a').css("color","#e8491d").css("font-weight", "bolder");;
+                $('#about a').css("color","#e8491d").css("font-weight", "bolder");
                 $('#career a').css("color","rgb(44, 156, 221)").css("font-weight", "100");
                 $('#contact a').css("color","rgb(44, 156, 221)").css("font-weight", "100");
 
-            });      
+            });
 
         });
-    
+
 });
 
 //---------- Career ----------------
 
-$('#career').on('click', function () {	
-				
+$('#career').on('click', function () {
+
     $('#about_form').slideUp(function(){
 
         $('#contact_form').slideUp(function(){
@@ -47,7 +47,7 @@ $('#career').on('click', function () {
             $('#career a').css("color","#e8491d").css("font-weight", "bolder");
             $('#contact a').css("color","rgb(44, 156, 221)").css("font-weight", "100");
 
-        });      
+        });
 
     });
 
@@ -56,8 +56,8 @@ $('#career').on('click', function () {
 
 //---------- Contact ----------------
 
-$('#contact').on('click', function () {	
-				
+$('#contact').on('click', function () {
+
     $('#about_form').slideUp(function(){
 
         $('#career_form').slideUp(function(){
@@ -67,7 +67,7 @@ $('#contact').on('click', function () {
             $('#career a').css("color","rgb(44, 156, 221)").css("font-weight", "100");
             $('#contact a').css("color","#e8491d").css("font-weight", "bolder");
 
-        });      
+        });
 
     });
 
@@ -91,7 +91,7 @@ $('#a2').on('click', function(){
 
     $('#logcli_form').hide();
     $('#logadmin_form').show();
-    
+
 
 });
 
@@ -109,11 +109,11 @@ $('#reg1').on('click', function(){
         $('#reg_cli_form').slideDown(1000);
         $('#reg1').css("color", "#e8491d").css("font-weight", "bolder");
         $('#reg2').css("color","rgb(44, 156, 221)").css("font-weight", "100");
-        
+
 
     });
-    
-    
+
+
 
 });
 
@@ -128,8 +128,8 @@ $('#reg2').on('click', function(){
         $('#reg1').css("color","rgb(44, 156, 221)").css("font-weight", "100");
 
     });
-    
-    
+
+
 
 });
 
