@@ -19,7 +19,7 @@
     "http": "0.0.0",
     "jquery": "^3.3.1",
     "jsonwebtoken": "^8.5.0",
-    "mongoose": "^5.4.15",
+    "mongoose": "^5.7.5",
     "mongoose-webhooks": "0.0.2",
     "ng2-slim-loading-bar": "^4.0.0",
     "ngx-toastr": "^9.1.2",
