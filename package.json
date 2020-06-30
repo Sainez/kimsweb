@@ -14,7 +14,7 @@
     "cors-anywhere": "^0.4.1",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
-    "express-jwt": "^5.3.1",
+    "express-jwt": "^6.0.0",
     "express-validator": "^5.3.1",
     "http": "0.0.0",
     "jquery": "^3.3.1",
